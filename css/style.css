@@ -1,6 +1,12 @@
+body {
+    margin: 0;
+    /*    background-color: #a74343;*/
+}
+
 .sitecontainer {
     width: 100vw;
     height: 100vw;
+    padding: 0.5vw;
 }
 
 .navmenu {
@@ -8,8 +14,41 @@
 }
 
 .navmenu a {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0.1vw;
+    margin-right: 0.1vw;
 }
 
-.row {}
+.rowgridtur {
+    display: flex;
+}
+
+.columntext {
+    width: 99vw;
+}
+
+.columngridtur {
+    display: inline-flex;
+    width: 49vw;
+    background-color: black;
+    color: white;
+}
+
+.rowgridtur:hover {
+    opacity: 0.5;
+}
+
+.columngridguide {
+    display: inline-flex;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 20vw;
+}
+
+.imggrid {
+    width: 100%;
+    height: 100%;
+}
+
+.imggrid:hover {
+    opacity: 0.5;
+}
