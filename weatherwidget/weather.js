@@ -29,8 +29,20 @@ function loadWeather(location, woeid) {
         woeid: woeid,
         unit: 'c',
         success: function (weather) {
-            html = '<span class="weathercontainer"><i class="currently icon-' + weather.code + '"></i>' + '<span class="currently ">' + weather.currently + '</span>' + '<span class="currently">' + weather.city + '</span>' + weather.temp + '&deg;' + weather.units.temp + '</span>';
+            html = '<span class="weathercontainer"><i class="currently icon-' + weather.code + '"></i>' + '<span class="currently ">' + weather.currently + '</span>' + '<span class="currently">' + weather.city + '</span>' + '<span class="currently ">' + weather.temp + '&deg;' + weather.units.temp + '</span>' + '<span class="currently ">' + weather.wind.direction + '</span>' + '<span class="windid">' + weather.wind.speed + ' </span>' + '<img class="windimg" src="Wind.svg">';
 
+
+
+            if (weather.wind.speed >= 10) {
+                console.log("højere end 10");
+                $(".windimg").hide();
+
+                console.log("virker");
+
+            } else {
+                console.log("lavere end 10")
+                $(".windimg").show();
+            }
             $("#weather").html(html);
         },
         error: function (error) {

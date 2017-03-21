@@ -1,0 +1,127 @@
+[{
+
+        "id": "Nordre Toldbod",
+        "lat": 55.689545,
+        "lng": 12.598828,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "introduktion til Danmark som kolonimagt og Det nye København. Kolonialisme handler om handel. Her lagde alle skibe til for at betale told og her møder I den nye verden. Havnens udvikling."
+},
+    {
+        "id": "Maersk",
+        "lat": 55.687081,
+        "lng": 12.598005,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "en af verdens største containerrederier og er meget dansk - symbolet på DK som søfartsnation i 1618 havde vi ikke en Maersk, men en Christian 4 og her er kort over kolonierne. Ove Gedde rejser ud"
+ },
+
+    {
+        "id": "Dansk Vestindisk Pakhus",
+        "lat": 55.686131,
+        "lng": 12.597237,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Lidl.jpg",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "transatlantisk slavehandel"
+ },
+    {
+
+        "id": "Relieffet i Toldbogade",
+        "lat": 55.686210,
+        "lng": 12.596824,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/jehova.jpg",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Enevældens syn på egen rolle i handlen"
+ },
+
+    {
+        "id": "Det Blå Pakhus",
+        "lat": 55.685079,
+        "lng": 12.596450,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Grønlandsk Pakhus med Grønlands udvikling og citat fra Poek og quiperoc"
+ },
+
+    {
+        "id": "Amalienborg",
+        "lat": 55.684077,
+        "lng": 12.593020,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Rytterstatuen er givet af Asiatisk kompagni, Moltkes Palæ og kongehuset var stært involveret i slaveriet - ejede de 4 største plantager"
+ },
+
+    {
+        "id": "Det Gule Palæ",
+        "lat": 55.683064,
+        "lng": 12.592682,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Bargum var rig, blev ansvarlig for slavehandlen og blev fattig"
+ },
+
+    {
+        "id": "Dehns Palæ",
+        "lat": 55.689599,
+        "lng": 12.598839,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Dehns Palæ her boede MacEvoy en meget rig plantageejer"
+ },
+
+    {
+        "id": "Bredgade 45",
+        "lat": 55.683719,
+        "lng": 12.589731,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "historien om Peter von Scholten"
+ },
+
+    {
+        "id": "Odd Fellow Palæet",
+        "lat": 55.682874,
+        "lng": 12.589849,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Schimmelman boede her"
+ },
+
+
+    {
+        "id": "Nyhavn",
+        "lat": 55.680650,
+        "lng": 12.588361,
+        "icon": "../img/new_mark-03.png",
+        "img": "img/Kea.gif",
+        "imgbefore": "img/beforepic.png",
+        "imgafter": "img/afterpic.png",
+        "txt": "Ludvig Ferdinand Rømer"
+ }
+
+
+
+
+
+ ]

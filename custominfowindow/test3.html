@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        html *,
+        body * {
+            box-sizing: border-box;
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        article {
+            color: red;
+            /*padding: 0 0 0 12px;*/
+        }
+        /*style the box*/
+
+        .gm-style-iw {
+            /* background-color: navajowhite !important;*/
+        }
+        /*style the arrow*/
+
+        .gm-style div div div div div div div div {
+            /* background-color: navajowhite !important;*/
+        }
+
+        .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div {}
+        /* pointer */
+
+        .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div {
+            /*background-color: magenta !important;*/
+        }
+        /* bg  */
+
+        .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div:last-child {
+            /*background-color: magenta !important;*/
+        }
+        /*  pointer skygge */
+
+        .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div >div {}
+
+        .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div {}
+        /* bg skygge */
+
+        .gm-style > div:first-child > div > div:last-child > div {}
+        /*///////////////////////////////////*/
+
+        .grow {
+            animation: grow 0.25s 1;
+        }
+
+        .growFadein {
+            animation: fadein, grow 0.18s 1 0.04s;
+        }
+
+        @keyframes grow {
+            0% {
+                transform: scale(0, 0);
+                margin-top: 140px;
+            }
+            96% {
+                transform: scale(1.02, 1.03);
+                margin-top: -3px;
+            }
+            100% {
+                transform: scale(1, 1);
+                margin-top: 0px;
+            }
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <template id="template">
+        <article>
+            <h2> MUMLE</h2>
+            <p>mumle mumle mumle
+            </p>
+        </article>
+    </template>
+    <template id="temporary">
+    </template>
+
+    <div id="map"></div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+        var steder = [];
+        var template = document.querySelector("#template");
+        var temporary = document.querySelector("#temporary");
+
+        var map;
+        var minPos;
+        var mig;
+
+        var lls = [];
+        var markers = [];
+        var windows = [];
+
+        var bounds;
+
+        window.addEventListener("load", start);
+        /////////////// JSON /////////////
+        function start() {
+
+            console.log("Start programmet");
+            $.getJSON("steder.json", hentSteder);
+        }
+
+        function hentSteder(stederFraJSON)  {
+            console.log("hentSteder");
+            // fang dem i array, mens de er der
+            steder = stederFraJSON;
+            stederFraJSON.forEach(lavSted);
+        }
+        //////////////////////////////////////
+
+        function lavSted(sted)  {
+            console.log("lav sted ");
+
+            /////////// Template /////////////
+            var klon = template.content.cloneNode(true);
+            klon.querySelector("h2").innerHTML = sted.title;
+            klon.querySelector("p").innerHTML = sted.txt;
+            temporary.appendChild(klon);
+            //////////////////////////////////
+
+            var ll = new google.maps.LatLng(sted.lat, sted.lng);
+
+            bounds.extend(ll);
+            map.fitBounds(bounds);
+
+            var m = new google.maps.Marker({
+                position: ll,
+                map: map,
+                animation: google.maps.Animation.DROP
+            });
+
+            var w = new google.maps.InfoWindow({
+                // maxWidth: 200
+            });
+
+            lls.push(ll);
+            windows.push(w);
+            markers.push(m);
+
+            m.addListener("click", function () {
+                var index = steder.indexOf(sted);
+                visInfo(index);
+            });
+        }
+
+        function visInfo(index) {
+
+            var info = document.querySelectorAll("#temporary article")[index];
+            //console.log(info);
+            var klon = info.cloneNode(true);
+            windows[index].setContent(klon);
+            windows[index].open(map, markers[index]);
+            winAnim();
+        }
+
+
+        function chekAfstand() {
+            console.log("chekAfstand");
+            lls.forEach(check);
+        }
+
+        function check(ll) {
+
+            var dist = google.maps.geometry.spherical.computeDistanceBetween(minPos, ll);
+
+            if (dist < 1000) {
+                var index = lls.indexOf(ll);
+                visInfo(index);
+            }
+        }
+
+
+        function initMap() {
+            bounds = new google.maps.LatLngBounds();
+            minPos = new google.maps.LatLng(55.7743415, 12.4963334);
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: minPos
+            });
+
+
+            ////////////// Geolocation ///////////////
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function (position) {
+
+                    minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                    map.setCenter(minPos);
+                    mig = new google.maps.Marker({
+                        position: minPos,
+                        map: map,
+                        animation: google.maps.Animation.BOUNCE
+                    });
+                    bounds.extend(minPos);
+                    map.fitBounds(bounds);
+                    chekAfstand();
+                });
+
+            } else {
+                // Browser doesn't support Geolocation
+                alert("Geolocation NOT");
+            }
+        }
+
+        //////////////////////////////////////////
+
+
+
+
+        function winAnim() {
+
+            var iwCont = $('.gm-style-iw');
+            var iwBG = iwCont.prev();
+            var iwCloseBtn = iwCont.next();
+
+            //////////
+            iwCont.css({
+
+            });
+            iwBG.children(':nth-child(2)').css({
+                'box-shadow': 'none'
+            });
+
+            iwBG.children(':nth-child(3)').css({
+
+                'opacity': '0.8'
+            });
+            iwBG.children(':nth-child(3)').find(' div div ').css({
+                'box-shadow': 'none'
+            });
+            iwBG.children(':nth-child(4)').css({
+                'opacity': '0.8'
+            });
+
+            //////////
+            iwCont.addClass("grow");
+            iwCloseBtn.addClass("grow");
+            iwBG.children(':nth-child(1)').addClass("grow");
+            iwBG.children(':nth-child(2)').addClass("grow");
+            iwBG.children(':nth-child(3)').addClass("grow");
+            iwBG.children(':nth-child(4)').addClass("grow");
+
+
+
+            /*var iws = document.querySelectorAll(".gm-style-iw");
+            iws.forEach(function(iw) {
+                var iwp = iw.previousSibling;
+                var iwn = iw.nextSibling;
+
+                iwn.style.width = "24px";
+                iwn.style.height = "24px";
+                iwn.style.backgroundColor = "white";
+                iwn.style.padding = "8px";
+                iwn.style.right = "0px";
+                iwn.style.top = "0px";
+                iwn.style.borderRadius = "40px";
+                iwn.style.boxShadow = "rgba(0, 0, 0, 0.6) 0px 1px 6px";
+                iwn.firstChild.style.top = "-331px";
+                iwn.firstChild.style.left = "4px";
+                iwp.children[1].style.borderRadius = "300px";
+                iwp.children[3].style.borderRadius = "300px";
+                iwp.children[3].style.opacity = "0.9";
+
+
+                //iw.classList.add("grow");
+                iw.classList.add("grow");
+                iwn.classList.add("growFadein");
+                iwp.children[0].classList.add("grow");
+                iwp.children[1].classList.add("grow");
+                iwp.children[2].classList.add("grow");
+                iwp.children[3].classList.add("grow");
+
+            });*/
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS2orcoKOJGX_V2FEri5RTVN4iTEU0rVY&libraries=geometry&callback=initMap"></script>
+</body>
+
+</html>

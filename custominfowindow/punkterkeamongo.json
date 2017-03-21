@@ -1,0 +1,51 @@
+[{
+
+        "id": "Kea hovedindgangen",
+        "lat": 55.706376,
+        "lng": 12.539105,
+        "icon": "icon/indgang.png",
+        "imgbefore": "img/keabefore.png",
+        "imgafter": "img/keaafter.png",
+        "txt": "Her er Kea Lygten 16 hovedindgang"
+},
+    {
+        "id": "Kea Fredagsbar",
+        "lat": 55.706482,
+        "lng": 12.539155,
+        "icon": "icon/fredagsbar.png",
+        "imgbefore": "img/keabefore.png",
+        "imgafter": "img/keaafter.png",
+        "txt": "Her er fredagsbaren"
+ },
+
+    {
+        "id": "Lidl",
+        "lat": 55.706273,
+        "lng": 12.538239,
+        "icon": "icon/lidl.png",
+        "imgbefore": "img/keabefore.png",
+        "imgafter": "img/keaafter.png",
+        "txt": "Her er Lidl foran Kea"
+ },
+    {
+
+        "id": "Jehovas vidner",
+        "lat": 55.706738,
+        "lng": 12.539310,
+        "icon": "icon/jehova.png",
+        "imgbefore": "img/keabefore.png",
+        "imgafter": "img/keaafter.png",
+        "txt": "Her er Jehovas vidner, don't go there!"
+ },
+
+    {
+        "id": "Kea Cykelstativet",
+        "lat": 55.706227,
+        "lng": 12.538994,
+        "icon": "icon/kontor.png",
+        "imgbefore": "img/keabefore.png",
+        "imgafter": "img/keaafter.png",
+        "txt": "Her er Kea's Cykelstativ"
+ }
+
+ ]

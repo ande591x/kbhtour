@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <ul class="list"></ul>
+    <template id="text_template">
+        <h2 class="h2class"></h2>
+        <p class="pclass"></p>
+        <img class="img_class" style="width: 75px; height:75px"></img>
+    </template>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&libraries=geometry&
+callback=initMap" async defer></script>
+    <script>
+        var marker3;
+        var info;
+        var valgtPunkt;
+        var map;
+        var infowindow;
+        var kbh;
+        var mig = null;
+        var overlay;
+
+
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("siden vises");
+            $.getJSON("punkterkeamongo.json", visPunktListe);
+
+        }
+
+
+        function visPunktListe(listen) {
+            console.table(listen);
+            listen.forEach(visPunktInfo);
+        }
+
+        function initMap() {
+            kbh = new google.maps.LatLng(55.706500, 12.539083);
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: kbh,
+                zoom: 19
+            });
+            var bounds = {
+                north: 55.70723596854047,
+                south: 55.70576401759747,
+                east: 12.540161248023992,
+                west: 12.536508079345708
+
+            }
+            var overlay = new google.maps.GroundOverlay("icon/overlay2-01.svg", bounds);
+            overlay.setMap(map);
+        }
+
+        function visPunktInfo(punkt)  {
+            var arrayOfMarkers = [];
+
+
+            console.log("Vis info");
+            console.log("id: " + punkt.id);
+            console.log("lat: " + punkt.lat);
+            console.log("lng: " + punkt.lng);
+
+            // sæt data ind i klonen
+
+
+            var ll = new google.maps.LatLng(punkt.lat, punkt.lng);
+            var m = new google.maps.Marker({
+                position: ll,
+                map: map,
+                icon: punkt.icon,
+                animation: google.maps.Animation.DROP
+            });
+            var w = new google.maps.InfoWindow({
+                maxWidth: 100
+
+            });
+            arrayOfMarkers.push(m);
+            m.addListener("click", visinfo);
+
+            function visinfo() {
+                var tempinfo =
+                    document.querySelector("#text_template").content.cloneNode(true);
+                tempinfo.querySelector(".h2class").innerHTML = punkt.id;
+                tempinfo.querySelector(".pclass").innerHTML = punkt.txt;
+                tempinfo.querySelector(".img_class").src = punkt.img;
+
+                w.setContent(tempinfo);
+                w.open(map, m);
+            }
+
+            var image = 'icon/you_are_here-01-01.svg'
+
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function (position) {
+
+                    var minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                    arrayOfMarkers.forEach(each => {
+                        console.log("arrayOfMarkers");
+                        console.log(each.getPosition().lng(), each.getPosition().lng());
+                        var eachmarkerspos = new google.maps.LatLng(each.getPosition().lat(), each.getPosition().lng());
+                        console.log("var  eachmarkerspos");
+                        var afstand = google.maps.geometry.spherical.computeDistanceBetween(minPos, eachmarkerspos);
+                        console.log("var  afstand");
+                        console.log("distance", afstand);
+                        if (afstand < 10) {
+                            console.log("under 10 meter");
+                            each.setAnimation(google.maps.Animation.BOUNCE);
+                        } else {
+                            console.log("else set animation = null");
+                            each.setAnimation(null);
+                        }
+
+                    })
+
+                    if (mig != null) {
+                        map.setCenter(minPos);
+                    } else {
+                        console.log("map.setCenter(minPos)");
+                        mig = new google.maps.Marker({
+                            position: minPos,
+                            map: map,
+                            icon: image
+                        });
+                        map.setCenter(minPos);
+                    }
+                    /*       console.log("før if else min pos");
+                           if (minPos !== 0) {
+                               console.log("minPos !== 0");
+                               map.setCenter(null);
+                           } else {
+                               console.log("Geolocation NOT");
+                               alert("Geolocation NOT");
+                           }*/
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>

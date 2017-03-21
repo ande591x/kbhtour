@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Københavnerture | Velkommen </title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body id="trip-maps-layout">
+    <!--[|Site Container start|-->
+    <div class="site-container">
+
+        <!--[|content start|-->
+        <div class="content">
+
+            <div id="map"></div>
+            <ul class="list"></ul>
+            <template id="template">
+                <div id="iw-container">
+                    <div class="iw-title"></div>
+                    <div class="iw-content">
+                    </div>
+                    <div id="beforecontainer">
+                        <img class="img_classbefore" style="width:109px; height:250px"></img>
+                        <img class="img_classafter" style="width: 109px; height:250px"></img>
+                    </div>
+                </div>
+            </template>
+
+            <div class="info-bar">
+                <div class="block home-icon">
+                    <div>
+                        <a href="start-trip.html"><img src="img/home.png"></a>
+                    </div>
+                </div>
+
+                <div class="block weather-icon">
+                    <img src="img/rain.png">
+                </div>
+
+                <div class="block temperature">
+                    <p>21˚</p>
+                </div>
+
+                <div class="block pollen">
+                    <p>0.10 km tilbage</p>
+                </div>
+            </div>
+        </div>
+
+        <!--|content end|]-->
+    </div>
+
+    <!--|Site Container start end|]-->
+
+
+    <!--[||-->
+    <!--||]-->
+    <!--[||-->
+    <!--||]-->
+    <!--[||-->
+    <!--||]-->
+    <!--[||-->
+    <!--||]-->
+
+
+    <!--|insert text|-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.20&sensor=false&key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&libraries=geometry&
+callback=initMap" async defer></script>
+    <script type="text/javascript" src="script/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="script/jquery-ui-1.8.13.custom.min.js"></script> <!--|jquery UI skal bruges før at before and after kan <bruges></bruges>|]-->
+    <script type="text/javascript" src="script/jquery.beforeafter-1.4.min.js"></script> <!--|before and after effect|]-->
+
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <!-- gør jquery ui mobile friendly-->
+
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>

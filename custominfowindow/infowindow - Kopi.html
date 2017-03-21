@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styleinfowindow.css">
+
+    <title>Simple markers</title>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <ul class="list"></ul>
+    <template id="template">
+        <div id="iw-container">
+            <div class="iw-title"></div>
+            <div class="iw-content">
+            </div>
+            <div id="beforecontainer">
+                <img class="img_classbefore" style="width: 75px; height:75px"></img>
+                <img class="img_classafter" style="width: 75px; height:75px"></img>
+            </div>
+        </div>
+    </template>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.20&sensor=false&key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&libraries=geometry&
+callback=initMap" async defer></script>
+    <script type="text/javascript" src="jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.8.13.custom.min.js"></script>
+    <script type="text/javascript" src="jquery.beforeafter-1.4.min.js"></script>
+    <script src="scriptinfowindow.js"></script>
+
+</body>
+
+</html>

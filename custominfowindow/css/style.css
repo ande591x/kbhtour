@@ -1,0 +1,662 @@
+/* BASIC STYLES */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+    color: #333333;
+    font-family: "Proxima Nova";
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+/* HEADER & NAVIGATION */
+
+header {
+    background-color: #333333;
+    margin-bottom: 50px;
+    padding: 25px 0;
+}
+
+header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.site-title {
+    color: #ffffff;
+    font-size: 33px;
+    margin: 0;
+}
+
+.navigation-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.navmenu a {
+    color: #ffffff;
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+
+/* CONTENT */
+
+.content {
+    margin: auto;
+    width: 92%
+}
+
+
+/* TRIPS */
+
+#trips {
+    padding: 50px 0 25px 0;
+}
+
+.trips-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trip {
+    flex-grow: 1;
+    flex-basis: 48%;
+    position: relative;
+}
+
+.trip:nth-of-type(1),
+.trip:nth-of-type(3) {
+    margin-right: 4%;
+}
+
+.trip:nth-of-type(1),
+.trip:nth-of-type(2) {
+    margin-bottom: 4%;
+}
+
+.trip h2 {
+    color: #ffffff;
+    font-size: 17px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: auto;
+    width: 70%;
+}
+
+
+/* GUIDES */
+
+#guides {
+    padding: 25px 0 50px 0;
+}
+
+.guides-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.guide {
+    flex-grow: 1;
+    flex-basis: 48%;
+    position: relative;
+}
+
+.guide:nth-of-type(1),
+.guide:nth-of-type(3) {
+    margin-right: 4%;
+}
+
+.guide:nth-of-type(1),
+.guide:nth-of-type(2) {
+    margin-bottom: 4%;
+}
+
+.guide h2 {
+    color: #ffffff;
+    font-size: 17px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: auto;
+    width: 70%;
+}
+
+
+/* CONTACT */
+
+.newsletter *,
+.contact-form {
+    margin: auto;
+}
+
+.newsletter,
+.contact-form {
+    margin: 0 0 50px 0;
+}
+
+.newsletter input,
+.contact-form *:not(h1) {
+    background-color: #DEDEDE;
+    border: none;
+    box-sizing: border-box;
+    display: block;
+    font-family: "Proxima Nova";
+    font-size: 15px;
+    margin-bottom: 25px;
+    outline: none;
+    padding: 20px;
+    width: 100%;
+}
+
+.newsletter {
+    text-align: center;
+}
+
+.newsletter h1 {
+    margin-bottom: 25px;
+}
+
+.newsletter p {
+    margin-bottom: 25px;
+}
+
+.newsletter input {
+    margin-bottom: 0;
+}
+
+.contact-form textarea {
+    height: 200px;
+    margin-bottom: 0;
+    resize: none;
+}
+
+
+/* SINGLE GUIDE PAGE */
+
+.single-guide {
+    margin-bottom: 50px;
+}
+
+.featured-trips {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.featured-trip {
+    flex-grow: 1;
+    flex-basis: 48%;
+    position: relative;
+}
+
+.featured-trip:nth-of-type(1),
+.featured-trip:nth-of-type(3) {
+    margin-right: 4%;
+}
+
+.featured-trip:nth-of-type(1),
+.featured-trip:nth-of-type(2) {
+    margin-bottom: 4%;
+}
+
+.featured-trip h2 {
+    color: #ffffff;
+    font-size: 17px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: auto;
+    width: 70%;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #333333;
+    padding: 25px;
+}
+
+.footer-inner {
+    margin: auto;
+    width: 50vw;
+}
+
+.footer-inner p {
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.footer-inner p:first-of-type {
+    padding-bottom: 15px;
+}
+
+
+/* --------------------------------------------------
+-----------------------------------------------------
+---------------------TRIP LAYOUT---------------------
+-----------------------------------------------------
+---------------------------------------------------*/
+
+#trip-layout .content,
+#trip-maps-layout .content {
+    width: 100vw;
+}
+
+#trip-layout header {
+    background-color: initial;
+    margin: 0;
+    padding: 25px 0 0 0;
+}
+
+#trip-layout header div img {
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    margin: 16.25px 0;
+}
+
+#trip-layout header h1 {
+    font-size: 20px;
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 25px;
+    width: 100%;
+    float: right;
+}
+
+.info-bar {
+    background-color: #333333;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
+.info-bar .block {
+    flex-grow: 1;
+    flex-basis: 25%;
+}
+
+.info-bar p,
+.weather-icon img,
+.home-icon div {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.info-bar p {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+.weather-icon img,
+.home-icon img {
+    margin: auto;
+    width: 50%;
+}
+
+.temperature p {
+    font-size: 35px;
+}
+
+.introduction {
+    margin: 50px auto;
+    width: 92%;
+}
+
+.start-trip {
+    position: relative;
+}
+
+.begin-btn {
+    background-color: #ffffff;
+    border-radius: 50px;
+    color: #333333;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 25px;
+    width: 55%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#trip-maps-layout .info-bar {
+    position: absolute;
+    bottom: 0;
+}
+
+#trip-maps-layout .content {
+    background-image: url("../img/testmap2.png");
+    height: 100vh;
+    background-size: contain;
+}
+
+#trip-maps-layout .stop {
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 150px;
+}
+
+#trip-maps-layout .stop > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 92%;
+}
+
+#trip-maps-layout .stop h1 {
+    font-size: 20px;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 25px 0;
+    width: 100%;
+}
+
+#trip-maps-layout .stop > img {
+    position: absolute;
+    top: 16px;
+    right: 5px;
+    width: 12%;
+}
+
+#trip-maps-layout .stop .images::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#trip-maps-layout .stop .images img {
+    display: inline-block;
+    float: left;
+    width: 48%;
+}
+
+#trip-maps-layout .stop .images img:nth-of-type(1) {
+    margin-right: 4%;
+}
+
+#trip-maps-layout .stop .quiz-btn {
+    background-color: #333333;
+    border-radius: 50px;
+    color: #ffffff;
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    width: 55%;
+    margin-top: 25px;
+}
+
+#map {
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------INFO WINDOW START ---------------------------------------------------------------------------------------------------------------*/
+
+.gm-style-iw {
+    width: 80vw !important;
+    height: 40vw !important;
+    top: -10px !important;
+    left: 5vw !important;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    border-radius: 2px 2px 10px 10px;
+}
+
+
+/*div rundt om container*/
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div.gm-style-iw.grow > div {
+    overflow: visible !important;
+}
+
+
+/*slut*/
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4),
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
+    top: -10px !important;
+    left: 5vw !important;
+    background-color: transparent;
+}
+
+
+/*ændre positon på krydset i hjørnet*/
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) > img {
+    left: 90vw !important;
+}
+
+
+/*containernen til krydset*/
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) {
+    width: 100vw !important;
+    left: -8vw !important;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div {
+    left: 1vw !important;
+    margin: 1vw !important;
+}
+
+#iw-container {
+    margin-bottom: 10px;
+    width: 50vw;
+    height: 30vw;
+}
+
+
+/*CSS ANIMATIONER START*/
+
+.grow {
+    animation: grow 0.25s 1;
+}
+
+.growFadein {
+    animation: fadein, grow 0.18s 1 0.04s;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0, 0);
+        margin-top: 140px;
+    }
+    96% {
+        transform: scale(1.02, 1.03);
+        margin-top: -3px;
+    }
+    100% {
+        transform: scale(1, 1);
+        margin-top: 0px;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@-webkit-keyframes zoomInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+        transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+        transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+}
+
+@keyframes zoomInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+        transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+        transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+}
+
+.zoomInUp {
+    -webkit-animation-name: zoomInUp;
+    animation-name: zoomInUp;
+}
+
+@-webkit-keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#iw-container .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #48b5e9;
+    color: white;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+}
+
+.iw-title {
+    width: 80vw;
+}
+
+#iw-container .iw-content {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-right: 1px;
+    padding: 15px 5px 20px 15px;
+    max-height: 140px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.iw-content img {
+    float: right;
+    margin: 0 5px 5px 10px;
+}
+
+.iw-subTitle {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.iw-bottom-gradient {
+    position: absolute;
+    width: 326px;
+    height: 25px;
+    bottom: 10px;
+    right: 18px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+/*----------------------------------------------------------------------------------------------------------INFO WINDOW SLUT -----------------------------------------------------------------------------------------------------------*/

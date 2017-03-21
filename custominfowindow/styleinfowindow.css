@@ -1,0 +1,199 @@
+  /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+  #map {
+      height: 100%;
+      width: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+
+  html,
+  body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+
+  .gm-style-iw {
+      width: 80vw !important;
+      height: 40vw !important;
+      top: -10px !important;
+      left: 5vw !important;
+      background-color: #fff;
+      box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+      border: 1px solid rgba(72, 181, 233, 0.6);
+      border-radius: 2px 2px 10px 10px;
+  }
+  /*div rundt om container*/
+
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div.gm-style-iw.grow > div {
+      overflow: visible !important;
+  }
+  /*slut*/
+
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4),
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2) {
+      top: -10px !important;
+      left: 5vw !important;
+      background-color: transparent;
+  }
+  /*ændre positon på krydset i hjørnet*/
+
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) > img {
+      left: 90vw !important;
+  }
+  /*containernen til krydset*/
+
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3) {
+      width: 100vw !important;
+      left: -8vw !important;
+  }
+
+  #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div {
+      left: 1vw !important;
+      margin: 1vw !important;
+  }
+
+  #iw-container {
+      margin-bottom: 10px;
+      width: 50vw;
+      height: 30vw;
+  }
+  /*CSS ANIMATIONER START*/
+
+  .grow {
+      animation: grow 0.25s 1;
+  }
+
+  .growFadein {
+      animation: fadein, grow 0.18s 1 0.04s;
+  }
+
+  @keyframes grow {
+      0% {
+          transform: scale(0, 0);
+          margin-top: 140px;
+      }
+      96% {
+          transform: scale(1.02, 1.03);
+          margin-top: -3px;
+      }
+      100% {
+          transform: scale(1, 1);
+          margin-top: 0px;
+      }
+  }
+
+  @keyframes fadein {
+      0% {
+          opacity: 0;
+      }
+      90% {
+          opacity: 1;
+      }
+      100% {
+          opacity: 0.6;
+      }
+  }
+
+  @-webkit-keyframes zoomInUp {
+      from {
+          opacity: 0;
+          -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+          transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+          -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+          animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      }
+      60% {
+          opacity: 1;
+          -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+          transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+          -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      }
+  }
+
+  @keyframes zoomInUp {
+      from {
+          opacity: 0;
+          -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+          transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+          -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+          animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      }
+      60% {
+          opacity: 1;
+          -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+          transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+          -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      }
+  }
+
+  .zoomInUp {
+      -webkit-animation-name: zoomInUp;
+      animation-name: zoomInUp;
+  }
+
+  @-webkit-keyframes zoomOut {
+      from {
+          opacity: 1;
+      }
+      50% {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+      }
+      to {
+          opacity: 0;
+      }
+  }
+
+  #iw-container .iw-title {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      padding: 10px;
+      background-color: #48b5e9;
+      color: white;
+      margin: 0;
+      border-radius: 2px 2px 0 0;
+  }
+
+  .iw-title {
+      width: 80vw;
+  }
+
+  #iw-container .iw-content {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 400;
+      margin-right: 1px;
+      padding: 15px 5px 20px 15px;
+      max-height: 140px;
+      overflow-y: auto;
+      overflow-x: hidden;
+  }
+
+  .iw-content img {
+      float: right;
+      margin: 0 5px 5px 10px;
+  }
+
+  .iw-subTitle {
+      font-size: 16px;
+      font-weight: 700;
+      padding: 5px 0;
+  }
+
+  .iw-bottom-gradient {
+      position: absolute;
+      width: 326px;
+      height: 25px;
+      bottom: 10px;
+      right: 18px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+      background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
